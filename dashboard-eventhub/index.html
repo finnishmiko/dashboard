@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/lib/c3.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>      
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Device-to-Cloud (D2C) Data</h2>
+                    <div id="graph"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Cloud-to-Device (C2D) Messaging</h2>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="deviceId">Device</label>
+                            <input type="text" class="form-control" id="deviceId" placeholder="Your device ID" width="25%">
+                        </div>
+                        <button id="OnButton" class="btn btn-large btn-success"> ON </button>
+                        <button id="OffButton" class="btn btn-large btn-danger"> OFF </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/lib/d3.v3.min.js"></script>
+        <script src="/lib/c3.min.js"></script>
+        <script src="/js/graph.js"></script>
+        <script src="/js/led.js"></script>
+    </body>
+</html>

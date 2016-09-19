@@ -17,9 +17,10 @@ var chart = c3.generate({
     }
 });
 
-var DATA_POINT_COUNT = 200;
+var DATA_POINT_COUNT = 20;
 //var LABEL_PREFIXES = /^avg|^min|^max/;
 var LABEL_PREFIXES = /^data/;
+//var LABEL_PREFIXES = /^temp|^light|^counter/;
 var labels = null;
 var columns = [];
 

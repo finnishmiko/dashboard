@@ -1,5 +1,4 @@
 var express = require('express.io')
-var uuid = require('uuid');
 var EventHubClient = require('azure-event-hubs').Client;
 var IotHubClient = require('azure-iothub').Client;
 var Message = require('azure-iot-common').Message;
@@ -11,8 +10,8 @@ var eventHubConnectionString = process.env.EVENTHUB_CONNSTRING || ''
 var client = EventHubClient.fromConnectionString(eventHubConnectionString, '<Event hub namespace name>')
 
 // Setup your sessions, just like normal.
-app.use(express.cookieParser())
-app.use(express.session({secret: 'Company X'}))
+app.use(express.cookieParser());
+app.use(express.session({secret: 'random_text_here'}));
 
 // Session is automatically setup on initial request.
 app.get('/', function(req, res) {
@@ -22,7 +21,7 @@ app.get('/', function(req, res) {
 
 app.post('/:deviceId/led/:state', function (req, res) { 
     var deviceId = req.params.deviceId;
-    var ledState = req.params.state;   
+    var ledState = req.params.state; 
     var messageData = '{"ledState":' + ledState + '}';
 
     var client = IotHubClient.fromConnectionString(iotHubConnectionString);
@@ -44,7 +43,7 @@ app.post('/:deviceId/led/:state', function (req, res) {
         }
     });
     
-    res.status(20).end();
+    res.status(200).end();
 });
 
 app.use(express.static(__dirname + '/static'));
@@ -76,4 +75,4 @@ app.io.route('ready', function(req) {
     });
 });
 
-app.listen(process.env.port || 8000)
+app.listen(process.env.port||8000)

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--link rel="icon" href="../../favicon.ico"-->
+
+    <title>Salo Expo Visitor counter</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/c3.min.css" type="text/css">
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">C3 chart demo</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="/">Home</a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Visitor counter</h1>
+            <p class="lead">2016</p>
+            <div id="graph"></div>
+
+
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Created by <a href="https://github.com/finnishmiko"> finnishmiko</a></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="lib/c3.min.js"></script>
+
+    <script>
+
+      var chart = c3.generate({
+        bindto: '#graph',
+        data: {
+            x: 'x',
+            xFormat: '%H:%M',
+            columns: [
+              ['x', '16:18','16:08','15:57','15:36','15:25',
+'15:15','15:04','14:54','14:43','14:32','14:22','14:11','14:01',
+'13:50','13:39','13:29','13:18','13:08','12:57','12:46','12:36',
+'12:25','12:15','12:04','11:54','11:43','11:32','11:22','11:11'
+],
+              ['visitors', 3,5,2,174,149,116,135,120,98,
+94,122,143,71,71,126,62,65,86,167,167,148,100,120,96,124,
+172,137,195,179]
+            ],
+            type: 'bar'
+        },
+        bar: {
+          width: {ratio: 0.7}
+        },
+        axis: {
+          x: {
+            type: 'timeseries',
+            tick: '%X'
+          }
+        }
+      });
+
+      /*setTimeout(function () {
+        chart.load({
+            columns: [
+                ['data3', 130, -150, 200, 300, -200, 100]
+            ]
+        });
+      }, 1000);*/
+
+    </script>
+  </body>
+</html>
